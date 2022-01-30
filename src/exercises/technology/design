@@ -1,0 +1,32 @@
+computer
+______________________
+- name: String
+- Mac Address: String
+
+________________________________
+properties
++ external port number: Integer
++ weight : double
++ screenType: string
+_____________________________________
+methods
++ noiseMeter: String
++internet type: string
+
+
+*************************************
+Laptop extends computer
+___________________________
+properties
++mousepad size : integer
++++++++++++++++++++++++
+internet type: String
+
+*************************************************
+CellPHone extends computer
+______________________________
+properties
++camera
+____________________________
+methods
+internet type: string
