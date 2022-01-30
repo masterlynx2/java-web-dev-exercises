@@ -1,5 +1,7 @@
 package org.launchcode.java.demos.lsn4classes2;
 
+import java.util.Objects;
+
 public class Student {
 
     private static int nextStudentId = 1;
@@ -30,20 +32,61 @@ public class Student {
 
 
      //TODO: Uncomment and complete the getGradeLevel method here:
-//    public String getGradeLevel() {
+    public String getGradeLevel(int numberOfCredits) {
 //        // Determine the grade level of the student based on numberOfCredits
-//    }
+        if(numberOfCredits >0 && numberOfCredits <=29){
+            return "Freshman";
+        }else if( numberOfCredits >=30 && numberOfCredits <=59){
+            return "Sophomore";
+        }else if( numberOfCredits >=60 && numberOfCredits <89){
+            return "Junior";
+
+        }else{
+            return "Senior";
+        }
+    }
 
     // TODO: Complete the addGrade method.
     public void addGrade(int courseCredits, double grade) {
         // Update the appropriate fields: numberOfCredits, gpa
+
+        double score = this.gpa * this.numberOfCredits;
+        score += courseCredits *grade;
+        this.numberOfCredits += courseCredits;
+        this.gpa = score/this.numberOfCredits;
+
     }
 
     // TODO: Add your custom 'toString' method here. Make sure it returns a well-formatted String rather
     //  than just the class fields.
 
+
+@Override
+    public String toString(){
+        String studentReport = String.format("%s is a with $d credits and a GPA of %.2f", this.name,this.getGradeLevel(23),this.getNumberOfCredits(), this.getGpa());
+        return studentReport;
+    }
+
     // TODO: Add your custom 'equals' method here. Consider which fields should match in order to call two
     //  Student objects equal.
+
+
+    @Override
+    public boolean equals(Object toBeCompared){
+        if (toBeCompared == this){
+            return true;
+        }
+        if(toBeCompared == null){
+            return  false;
+        }
+        if (toBeCompared.getClass() !=  getClass()){
+        return  false;
+    }
+        Student theStudent = (Student) toBeCompared;
+        return theStudent.getStudentId() == getStudentId();
+
+
+    }
 
     public String getName() {
         return name;

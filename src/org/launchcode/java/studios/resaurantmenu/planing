@@ -1,0 +1,19 @@
+menu
+
+
+
+menuitem
+
+name
+get/set
+price
+get/set
+description
+get/set
+category
+get/set
+newItemcheck
+item added date <30 days of menuupdateDate
+get/set
+menuUpdateDate
+get/set
